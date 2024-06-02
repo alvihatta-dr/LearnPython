@@ -1,2 +1,2 @@
-def luas_persegi():
-    pass
+def luas_persegi(sisi):
+    return sisi*sisi
