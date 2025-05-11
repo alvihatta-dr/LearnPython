@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mario Run Animation</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-color: white;
+    }
+
+    #mario {
+      position: absolute;
+      bottom: 100px;
+      left: 0;
+      width: 64px;
+      height: 64px;
+    }
+  </style>
+</head>
+<body>
+
+  <img id="mario" src="sprites/run1.png" alt="Mario">
+
+  <script>
+    const runFrames = ["sprites/run1.png", "sprites/run2.png", "sprites/run3.png"];
+    let mario = document.getElementById("mario");
+    let frame = 0;
+    let x = 0;
+
+    function animate() {
+      // Switch sprite frame
+      mario.src = runFrames[frame % runFrames.length];
+      frame++;
+
+      // Move Mario to the right
+      x += 4;
+      if (x > window.innerWidth) x = -64;
+      mario.style.left = x + "px";
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+
+</body>
+</html>
